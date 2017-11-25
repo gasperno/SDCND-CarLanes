@@ -1,11 +1,3 @@
-# **Finding Lane Lines on the Road** 
-
-## Writeup Template
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
-
----
-
 **Finding Lane Lines on the Road**
 
 The goals / steps of this project are the following:
@@ -37,14 +29,14 @@ My pipeline consisted of 5 steps.
 * Applied Canny Edge detection to detect the edges in this image. I played around with thresholds and found 200 to 255 as optimal values to find the lines.
 ![Canny][canny]
 * I selected a region of interest in the bottom half of the image by forming a triangle in the lower half of the image
-![region][Region of Interest]
+![Region of Interest][region]
 * Applied Hough transform in this region to identify the line segments. I played around with max and min line gap to identify all the points on both sides of the traffic lane.
-![hough][Hough Transform]
+![Hough Transform][hough]
 * Modified draw_lines() to identify the left segment and right segment.
 I could identify that the left segment has a positive slope while the right segment has negative. I ignored all the line segments which have a slope of zero. I calculated slopes on segments from the Hough transform and averaged it. Took a mean of all points on each segment. 
 I, now, have to draw a line passing through this "mean point" having mean slope that begins from bottom of the image. This is true for the right segment as well only that the slope and mean point would change.
 This can be seen in the following image.
-![output][Extrapolated lines]
+![Extrapolated lines][output]
 
 
 ### 2. Identify potential shortcomings with your current pipeline
